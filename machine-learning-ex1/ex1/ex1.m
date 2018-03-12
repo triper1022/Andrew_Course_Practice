@@ -64,8 +64,6 @@ J = computeCost(X, y, theta);
 fprintf('With theta = [0 ; 0]\nCost computed = %f\n', J);
 fprintf('Expected cost value (approx) 32.07\n');
 
-break;
-
 % further testing of the cost function
 J = computeCost(X, y, [-1 ; 2]);
 fprintf('\nWith theta = [-1 ; 2]\nCost computed = %f\n', J);
@@ -83,6 +81,8 @@ fprintf('Theta found by gradient descent:\n');
 fprintf('%f\n', theta);
 fprintf('Expected theta values (approx)\n');
 fprintf(' -3.6303\n  1.1664\n\n');
+
+break;
 
 % Plot the linear fit
 hold on; % keep previous plot visible
