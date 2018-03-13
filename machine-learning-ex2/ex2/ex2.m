@@ -58,8 +58,6 @@ fprintf('Gradient at initial theta (zeros): \n');
 fprintf(' %f \n', grad);
 fprintf('Expected gradients (approx):\n -0.1000\n -12.0092\n -11.2628\n');
 
-break;
-
 % Compute and display cost and gradient with non-zero theta
 test_theta = [-24; 0.2; 0.2];
 [cost, grad] = costFunction(test_theta, X, y);
@@ -94,18 +92,6 @@ fprintf(' %f \n', theta);
 fprintf('Expected theta (approx):\n');
 fprintf(' -25.161\n 0.206\n 0.201\n');
 
-% Plot Boundary
-plotDecisionBoundary(theta, X, y);
-
-% Put some labels 
-hold on;
-% Labels and Legend
-xlabel('Exam 1 score')
-ylabel('Exam 2 score')
-
-% Specified in plot order
-legend('Admitted', 'Not admitted')
-hold off;
 
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
@@ -124,10 +110,13 @@ pause;
 %  Predict probability for a student with score 45 on exam 1 
 %  and score 85 on exam 2 
 
-prob = sigmoid([1 45 85] * theta);
+a = sigmoid([1 45 85] * theta);
+prob = round(a * 1000) / 1000;
+
 fprintf(['For a student with scores 45 and 85, we predict an admission ' ...
          'probability of %f\n'], prob);
 fprintf('Expected value: 0.775 +/- 0.002\n\n');
+
 
 % Compute accuracy on our training set
 p = predict(theta, X);
