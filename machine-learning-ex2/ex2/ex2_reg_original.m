@@ -27,7 +27,18 @@ clear ; close all; clc
 data = load('ex2data2.txt');
 X = data(:, [1, 2]); y = data(:, 3);
 
-%  skip plot and keep in original file
+plotData(X, y);
+
+% Put some labels
+hold on;
+
+% Labels and Legend
+xlabel('Microchip Test 1')
+ylabel('Microchip Test 2')
+
+% Specified in plot order
+legend('y = 1', 'y = 0')
+hold off;
 
 
 %% =========== Part 1: Regularized Logistic Regression ============
@@ -54,7 +65,6 @@ lambda = 1;
 
 % Compute and display initial cost and gradient for regularized logistic
 % regression
-
 [cost, grad] = costFunctionReg(initial_theta, X, y, lambda);
 
 fprintf('Cost at initial theta (zeros): %f\n', cost);
@@ -66,8 +76,6 @@ fprintf(' 0.0085\n 0.0188\n 0.0001\n 0.0503\n 0.0115\n');
 
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
-
-break;
 
 % Compute and display cost and gradient
 % with all-ones theta and lambda = 10
@@ -83,8 +91,6 @@ fprintf(' 0.3460\n 0.1614\n 0.1948\n 0.2269\n 0.0922\n');
 
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
-
-
 
 %% ============= Part 2: Regularization and Accuracies =============
 %  Optional Exercise:
@@ -110,6 +116,17 @@ options = optimset('GradObj', 'on', 'MaxIter', 400);
 [theta, J, exit_flag] = ...
 	fminunc(@(t)(costFunctionReg(t, X, y, lambda)), initial_theta, options);
 
+% Plot Boundary
+plotDecisionBoundary(theta, X, y);
+hold on;
+title(sprintf('lambda = %g', lambda))
+
+% Labels and Legend
+xlabel('Microchip Test 1')
+ylabel('Microchip Test 2')
+
+legend('y = 1', 'y = 0', 'Decision boundary')
+hold off;
 
 % Compute accuracy on our training set
 p = predict(theta, X);
