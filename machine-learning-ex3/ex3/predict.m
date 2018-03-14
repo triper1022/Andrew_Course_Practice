@@ -4,6 +4,7 @@ function p = predict(Theta1, Theta2, X)
 %   trained weights of a neural network (Theta1, Theta2)
 
 % Useful values
+% sample size
 m = size(X, 1);
 num_labels = size(Theta2, 1);
 
@@ -21,11 +22,20 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
+% Add ones to the X data matrix
+X = [ones(m, 1) X];
 
+Z2 = X * Theta1';
+A2 = [ones(size(Z2, 1),1) sigmoid(Z2)];
+Z3 = A2 * Theta2';
+A3 = sigmoid(Z3);
 
+% find which class is max  
+[max_values,indices] = max(A3, [], 2);
+% transform probability and test if greater than or equal to 0.5
+test = sigmoid(max_values)>= 0.5;
 
-
-
+p = (test).* indices;
 
 
 
