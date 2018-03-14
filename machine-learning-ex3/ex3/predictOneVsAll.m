@@ -14,7 +14,7 @@ m = size(X, 1);
 num_labels = size(all_theta, 1);
 
 % You need to return the following variables correctly 
-p = zeros(size(X, 1), 1);
+p = zeros(m, 1);
 
 % Add ones to the X data matrix
 X = [ones(m, 1) X];
@@ -26,17 +26,19 @@ X = [ones(m, 1) X];
 %               num_labels).
 %
 % Hint: This code can be done all vectorized using the max function.
-%       In particular, the max function can also return the index of the 
+%       In particular, 
+%       the max function can also return the index of the 
 %       max element, for more information see 'help max'. If your examples 
 %       are in rows, then, you can use max(A, [], 2) to obtain the max 
 %       for each row.
-%       
+%
+% find which class is max       
+[max_values,indices] = max((all_theta * X')', [], 2);
+% transform probability and test if greater than or equal to 0.5
+test = sigmoid(max_values)>= 0.5;
 
-p = max(all_theta * X', [], num_labels)
-
-
+p = (test).* indices;
 
 % =========================================================================
-
 
 end
