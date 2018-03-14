@@ -8,7 +8,9 @@ function p = predictOneVsAll(all_theta, X)
 %  of values from 1..K (e.g., p = [1; 3; 1; 2] predicts classes 1, 3, 1, 2
 %  for 4 examples) 
 
+% sample size
 m = size(X, 1);
+% label size
 num_labels = size(all_theta, 1);
 
 % You need to return the following variables correctly 
@@ -30,9 +32,7 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-
-
-
+p = max(all_theta * X', [], num_labels)
 
 
 
