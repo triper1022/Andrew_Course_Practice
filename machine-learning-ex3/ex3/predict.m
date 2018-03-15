@@ -32,7 +32,8 @@ A3 = sigmoid(Z3);
 
 % find which class is max  
 [max_values,indices] = max(A3, [], 2);
-% transform probability and test if greater than or equal to 0.5
+% transform probability 
+% and test if greater than or equal to 0.5
 test = sigmoid(max_values)>= 0.5;
 
 p = (test).* indices;
