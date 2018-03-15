@@ -111,8 +111,6 @@ pause;
 
 fprintf('\nEvaluating sigmoid gradient...\n')
 
-break;
-
 g = sigmoidGradient([-1 -0.5 0 0.5 1]);
 fprintf('Sigmoid gradient evaluated at [-1 -0.5 0 0.5 1]:\n  ');
 fprintf('%f ', g);
@@ -120,7 +118,6 @@ fprintf('\n\n');
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
-
 
 %% ================ Part 6: Initializing Pameters ================
 %  In this part of the exercise, you will be starting to implment a two
@@ -137,6 +134,7 @@ initial_Theta2 = randInitializeWeights(hidden_layer_size, num_labels);
 initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
 
 
+
 %% =============== Part 7: Implement Backpropagation ===============
 %  Once your cost matches up with ours, you should proceed to implement the
 %  backpropagation algorithm for the neural network. You should add to the
@@ -151,6 +149,7 @@ checkNNGradients;
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
+break;
 
 %% =============== Part 8: Implement Regularization ===============
 %  Once your backpropagation implementation is correct, you should now

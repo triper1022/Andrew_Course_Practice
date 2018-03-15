@@ -27,8 +27,6 @@ m = size(X, 1);
          
 % You need to return the following variables correctly 
 J = 0;
-Theta1_grad = zeros(size(Theta1));
-Theta2_grad = zeros(size(Theta2));
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: You should complete the code by working through the
@@ -50,7 +48,7 @@ A3 = sigmoid(Z3);
 % transform y-vec to Y-matrix
 Y = zeros(size(A3));
 for i = 1:m
-Y(i,y(i)) = 1;
+    Y(i,y(i)) = 1;
 end    
 
 % culculate J(theta)
@@ -61,6 +59,24 @@ y2 = y0+y1;
 reg = sum(sum(Theta1(:,2:end).^2)) + sum(sum(Theta2(:,2:end).^2));
 
 J = -sum(y2(:))/m + lambda * reg /2/m;
+
+D3 = A3 - Y;
+D2 = Theta2(:,2:end)' * D3'.* sigmoidGradient(Z2)';
+
+Theta1_grad = zeros(size(Theta1));
+Theta2_grad = zeros(size(Theta2));
+
+Theta2_grad = (Theta2_grad + D3' * A2)/m;
+#Theta2_grad = Theta2_grad(:,2:end);
+
+Theta1_grad = (Theta1_grad + D2 * X)/m;
+#Theta1_grad = Theta1_grad(:,2:end);
+
+% Unroll gradients
+grad = [Theta1_grad(:) ; Theta2_grad(:)];
+
+end
+
 
 % Part 2: Implement the backpropagation algorithm to compute the gradients
 %         Theta1_grad and Theta2_grad. You should return the partial derivatives of
@@ -77,7 +93,7 @@ J = -sum(y2(:))/m + lambda * reg /2/m;
 %               over the training examples if you are implementing it for the 
 %               first time.
 
-break;
+
 %
 % Part 3: Implement regularization with the cost function and gradients.
 %
@@ -91,7 +107,4 @@ break;
 
 % =========================================================================
 
-% Unroll gradients
-% grad = [Theta1_grad(:) ; Theta2_grad(:)];
 
-end
