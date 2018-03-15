@@ -47,7 +47,7 @@ A2 = [ones(size(Z2, 1),1) sigmoid(Z2)];
 Z3 = A2 * Theta2';
 A3 = sigmoid(Z3);
 
-% transform y vec to Y matrix
+% transform y-vec to Y-matrix
 Y = zeros(size(A3));
 for i = 1:m
 Y(i,y(i)) = 1;
@@ -56,9 +56,12 @@ end
 % culculate J(theta)
 y0 = Y .* log(A3);
 y1 = (1-Y) .* log(1 - A3);
-J = -sum(sum(y0+y1))/m;
+y2 = y0+y1;
+% regular term
+reg = sum(sum(Theta1(:,2:end).^2)) + sum(sum(Theta2(:,2:end).^2));
 
-%
+J = -sum(y2(:))/m + lambda * reg /2/m;
+
 % Part 2: Implement the backpropagation algorithm to compute the gradients
 %         Theta1_grad and Theta2_grad. You should return the partial derivatives of
 %         the cost function with respect to Theta1 and Theta2 in Theta1_grad and

@@ -76,8 +76,7 @@ lambda = 0;
 
 J = nnCostFunction(nn_params, input_layer_size, hidden_layer_size, ...
                    num_labels, X, y, lambda);
-                   
-break;
+
 
 fprintf(['Cost at parameters (loaded from ex4weights): %f '...
          '\n(this value should be about 0.287629)\n'], J);
@@ -104,7 +103,6 @@ fprintf(['Cost at parameters (loaded from ex4weights): %f '...
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
-
 %% ================ Part 5: Sigmoid Gradient  ================
 %  Before you start implementing the neural network, you will first
 %  implement the gradient for the sigmoid function. You should complete the
@@ -112,6 +110,8 @@ pause;
 %
 
 fprintf('\nEvaluating sigmoid gradient...\n')
+
+break;
 
 g = sigmoidGradient([-1 -0.5 0 0.5 1]);
 fprintf('Sigmoid gradient evaluated at [-1 -0.5 0 0.5 1]:\n  ');
