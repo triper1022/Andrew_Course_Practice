@@ -67,10 +67,10 @@ Theta1_grad = zeros(size(Theta1));
 Theta2_grad = zeros(size(Theta2));
 
 Theta2_grad = (Theta2_grad + D3' * A2)/m;
-#Theta2_grad = Theta2_grad(:,2:end);
-
 Theta1_grad = (Theta1_grad + D2 * X)/m;
-#Theta1_grad = Theta1_grad(:,2:end);
+
+Theta2_grad(:,2:end) = Theta2_grad(:,2:end) + Theta2(:,2:end)*lambda/m;
+Theta1_grad(:,2:end) = Theta1_grad(:,2:end) + Theta1(:,2:end)*lambda/m;
 
 % Unroll gradients
 grad = [Theta1_grad(:) ; Theta2_grad(:)];
