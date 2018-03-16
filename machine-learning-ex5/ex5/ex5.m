@@ -56,7 +56,7 @@ fprintf(['Cost at theta = [1 ; 1]: %f '...
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
-break;
+
 
 %% =========== Part 3: Regularized Linear Regression Gradient =============
 %  You should now implement the gradient for regularized linear 
@@ -73,6 +73,8 @@ fprintf(['Gradient at theta = [1 ; 1]:  [%f; %f] '...
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
+
+break;
 
 %% =========== Part 4: Train Linear Regression =============
 %  Once you have implemented the cost and gradient correctly, the
@@ -97,6 +99,7 @@ hold off;
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
 
 
 %% =========== Part 5: Learning Curve for Linear Regression =============

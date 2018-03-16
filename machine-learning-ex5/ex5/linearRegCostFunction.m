@@ -11,9 +11,12 @@ m = length(y); % number of training examples
 % You need to return the following variables correctly 
 J = 0;
 reg = lambda * (theta(2:end)'*theta(2:end))/2/m;
-J = sum((X * theta - y).^2) / 2 / m + reg;
+h_err = X * theta - y;
+J = h_err'* h_err / 2 / m + reg;
 
 grad = zeros(size(theta));
+grad = X' * h_err / m; 
+grad(2:end) = grad(2:end) + lambda * theta(2:end) / m;
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost and gradient of regularized linear 
