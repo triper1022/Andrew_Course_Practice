@@ -74,8 +74,6 @@ fprintf('Program paused. Press enter to continue.\n');
 pause;
 
 
-break;
-
 %% =========== Part 4: Train Linear Regression =============
 %  Once you have implemented the cost and gradient correctly, the
 %  trainLinearReg function will use your cost function to train 
@@ -115,6 +113,8 @@ lambda = 0;
                   [ones(size(Xval, 1), 1) Xval], yval, ...
                   lambda);
 
+
+
 plot(1:m, error_train, 1:m, error_val);
 title('Learning curve for linear regression')
 legend('Train', 'Cross Validation')
@@ -129,6 +129,9 @@ end
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
+
+break;
 
 %% =========== Part 6: Feature Mapping for Polynomial Regression =============
 %  One solution to this is to use polynomial regression. You should now

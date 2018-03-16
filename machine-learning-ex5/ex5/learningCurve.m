@@ -21,6 +21,19 @@ m = size(X, 1);
 error_train = zeros(m, 1);
 error_val   = zeros(m, 1);
 
+for i = 1:m
+    [theta] = trainLinearReg([ones(i, 1) X(1:i, :)], y(1:i), lambda);
+    J = linearRegCostFunction([ones(i, 1) X(1:i, :)], y(1:i), theta, 0);
+    error_train(i) = J;
+    J = linearRegCostFunction([ones(size(Xval,1), 1) Xval], yval, theta, 0);
+    error_val(i) = J;
+end
+    
+
+
+%           % X(1:i, :) and y(1:i), storing the result in 
+%           % error_train(i) and error_val(i)
+
 % ====================== YOUR CODE HERE ======================
 % Instructions: Fill in this function to return training errors in 
 %               error_train and the cross validation errors in error_val. 
