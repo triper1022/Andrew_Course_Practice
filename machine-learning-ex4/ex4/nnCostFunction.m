@@ -60,15 +60,18 @@ reg = sum(sum(Theta1(:,2:end).^2)) + sum(sum(Theta2(:,2:end).^2));
 
 J = -sum(y2(:))/m + lambda * reg /2/m;
 
+% delta in each layer
 D3 = A3 - Y;
 D2 = Theta2(:,2:end)' * D3'.* sigmoidGradient(Z2)';
 
+% record the gradients
 Theta1_grad = zeros(size(Theta1));
 Theta2_grad = zeros(size(Theta2));
 
 Theta2_grad = (Theta2_grad + D3' * A2)/m;
 Theta1_grad = (Theta1_grad + D2 * X)/m;
 
+% regularize except theta zero
 Theta2_grad(:,2:end) = Theta2_grad(:,2:end) + Theta2(:,2:end)*lambda/m;
 Theta1_grad(:,2:end) = Theta1_grad(:,2:end) + Theta1(:,2:end)*lambda/m;
 
