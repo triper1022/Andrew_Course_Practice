@@ -141,7 +141,6 @@ pause;
 p = 8;
 X_poly = polyFeatures(X, p);
 
-break;
 
 [X_poly, mu, sigma] = featureNormalize(X_poly);  % Normalize
 
@@ -207,6 +206,7 @@ end
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
 
 %% =========== Part 8: Validation for Selecting Lambda =============
 %  You will now implement validationCurve to test various values of 
