@@ -10,6 +10,8 @@ function [U, S] = pca(X)
 % You need to return the following variables correctly.
 U = zeros(n);
 S = zeros(n);
+Sigma = X'*X / m;
+[U, S, V] = svd(Sigma);
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: You should first compute the covariance matrix. Then, you

@@ -62,7 +62,7 @@ fprintf('\n(the centroids should be\n');
 fprintf('   [ 2.428301 3.157924 ]\n');
 fprintf('   [ 5.813503 2.633656 ]\n');
 fprintf('   [ 7.119387 3.616684 ]\n\n');
-break;
+
 
 
 fprintf('Program paused. Press enter to continue.\n');
@@ -92,8 +92,10 @@ initial_centroids = [3 3; 6 2; 8 5];
 
 % Run K-Means algorithm. The 'true' at the end tells our function to plot
 % the progress of K-Means
-[centroids, idx] = runkMeans(X, initial_centroids, max_iters, true);
+% [centroids, idx] = runkMeans(X, initial_centroids, max_iters, true);
 fprintf('\nK-Means Done.\n\n');
+
+
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;

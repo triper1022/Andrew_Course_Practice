@@ -50,6 +50,8 @@ fprintf('\nRunning PCA on example dataset.\n\n');
 
 %  Run PCA
 [U, S] = pca(X_norm);
+break;
+
 
 %  Compute mu, the mean of the each feature
 
