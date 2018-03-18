@@ -38,7 +38,7 @@ fprintf('Word Indices: \n');
 fprintf(' %d', word_indices);
 fprintf('\n\n');
 
-break;
+
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
@@ -55,8 +55,8 @@ fprintf('\nExtracting features from sample email (emailSample1.txt)\n');
 % Extract Features
 file_contents = readFile('emailSample1.txt');
 word_indices  = processEmail(file_contents);
-
 features      = emailFeatures(word_indices);
+
 
 % Print Stats
 fprintf('Length of feature vector: %d\n', length(features));
