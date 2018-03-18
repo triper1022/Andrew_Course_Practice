@@ -32,13 +32,18 @@ fprintf('\nPreprocessing sample email (emailSample1.txt)\n');
 file_contents = readFile('emailSample1.txt');
 word_indices  = processEmail(file_contents);
 
+
 % Print Stats
 fprintf('Word Indices: \n');
 fprintf(' %d', word_indices);
 fprintf('\n\n');
 
+break;
+
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
+
 
 %% ==================== Part 2: Feature Extraction ====================
 %  Now, you will convert each email into a vector of features in R^n. 
@@ -50,6 +55,7 @@ fprintf('\nExtracting features from sample email (emailSample1.txt)\n');
 % Extract Features
 file_contents = readFile('emailSample1.txt');
 word_indices  = processEmail(file_contents);
+
 features      = emailFeatures(word_indices);
 
 % Print Stats

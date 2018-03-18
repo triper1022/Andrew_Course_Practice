@@ -73,7 +73,7 @@ while ~isempty(email_contents)
     % Skip the word if it is too short
     if length(str) < 1
        continue;
-    end
+    end;
 
     % Look up the word in the dictionary and add to word_indices if
     % found
@@ -89,6 +89,13 @@ while ~isempty(email_contents)
     %               'action' appears. For example, if vocabList{18} =
     %               'action', then, you should add 18 to the word_indices 
     %               vector (e.g., word_indices = [word_indices ; 18]; ).
+    for i = 1:length(vocabList)
+        str1 = vocabList{i};
+        if strcmp(str1, str)
+            word_indices = [word_indices ; i];
+            break;
+    end;
+            
     % 
     % Note: vocabList{idx} returns a the word with index idx in the
     %       vocabulary list.
