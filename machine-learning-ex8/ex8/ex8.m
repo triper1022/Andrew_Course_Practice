@@ -82,7 +82,7 @@ fprintf('Best epsilon found using cross-validation: %e\n', epsilon);
 fprintf('Best F1 on Cross Validation Set:  %f\n', F1);
 fprintf('   (you should see a value epsilon of about 8.99e-05)\n');
 fprintf('   (you should see a Best F1 value of  0.875000)\n\n');
-break;
+
 
 %  Find the outliers in the training set and plot the
 outliers = find(p < epsilon);

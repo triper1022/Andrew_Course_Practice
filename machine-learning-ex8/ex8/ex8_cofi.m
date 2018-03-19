@@ -64,6 +64,7 @@ J = cofiCostFunc([X(:) ; Theta(:)], Y, R, num_users, num_movies, ...
            
 fprintf(['Cost at loaded parameters: %f '...
          '\n(this value should be about 22.22)\n'], J);
+break;
 
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
