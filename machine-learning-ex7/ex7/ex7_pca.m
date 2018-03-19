@@ -94,7 +94,7 @@ fprintf('\n(this value should be about 1.481274)\n\n');
 X_rec  = recoverData(Z, U, K);
 fprintf('Approximation of the first example: %f %f\n', X_rec(1, 1), X_rec(1, 2));
 fprintf('\n(this value should be about  -1.047419 -1.047419)\n\n');
-break;
+
 %  Draw lines connecting the projected points to the original points
 hold on;
 plot(X_rec(:, 1), X_rec(:, 2), 'ro');
