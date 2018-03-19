@@ -27,7 +27,10 @@ reg2 = lambda * sum(sum(X.^2)) / 2;
 J = J + reg1 + reg2;
 
 X_grad = diff * Theta;
+X_grad = X_grad.+ lambda * X;
+
 Theta_grad = diff' * X;
+Theta_grad = Theta_grad.+ lambda * Theta;
 
 grad = [X_grad(:); Theta_grad(:)];
 
