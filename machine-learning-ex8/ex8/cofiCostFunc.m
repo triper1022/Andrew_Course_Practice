@@ -17,9 +17,19 @@ J = 0;
 X_grad = zeros(size(X));
 Theta_grad = zeros(size(Theta));
 
+% only calculate R=1
 diff = X * Theta'.* R.- Y;
 s = diff * diff'.* eye(size(diff,1));
+% sum dignoal
 J = trace(s) /2;
+
+X_grad = diff * Theta;
+Theta_grad = diff' * X;
+
+grad = [X_grad(:); Theta_grad(:)];
+
+end
+
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost function and gradient for collaborative
@@ -45,22 +55,5 @@ J = trace(s) /2;
 %
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 % =============================================================
 
-grad = [X_grad(:); Theta_grad(:)];
-
-end
