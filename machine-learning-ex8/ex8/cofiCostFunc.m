@@ -22,6 +22,9 @@ diff = X * Theta'.* R.- Y;
 s = diff * diff'.* eye(size(diff,1));
 % sum dignoal
 J = trace(s) /2;
+reg1 = lambda * sum(sum(Theta.^2)) / 2;
+reg2 = lambda * sum(sum(X.^2)) / 2;
+J = J + reg1 + reg2;
 
 X_grad = diff * Theta;
 Theta_grad = diff' * X;

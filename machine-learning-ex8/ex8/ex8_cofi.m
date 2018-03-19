@@ -79,7 +79,7 @@ fprintf('\nChecking Gradients (without regularization) ... \n');
 
 %  Check gradients by running checkNNGradients
 checkCostFunction;
-break;
+
 
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
@@ -94,7 +94,7 @@ pause;
 %  Evaluate cost function
 J = cofiCostFunc([X(:) ; Theta(:)], Y, R, num_users, num_movies, ...
                num_features, 1.5);
-           
+       
 fprintf(['Cost at loaded parameters (lambda = 1.5): %f '...
          '\n(this value should be about 31.34)\n'], J);
 
@@ -112,7 +112,7 @@ fprintf('\nChecking Gradients (with regularization) ... \n');
 
 %  Check gradients by running checkNNGradients
 checkCostFunction(1.5);
-
+break;    
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
